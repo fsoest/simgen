@@ -31,7 +31,7 @@ routes = {
 runway_in_use = 7
 restricted_heavies = ['B744', 'MD11', 'A388', 'B748']
 
-with open('flights.csv') as f:
+with open('eddf/flights.csv') as f:
     lines = f.readlines()
     flights = [line.split(';') for line in lines]
 
@@ -40,7 +40,7 @@ def hdg(heading):
     return str(int(heading * 2.88 + 0.5) << 2)
 
 
-with open('entries.txt') as f:
+with open('eddf/entries.txt') as f:
     lines = f.readlines()
     entry_points = {}
     for line in lines:
@@ -87,23 +87,23 @@ class Flight:
                         self.reqalt = 'ETARU:10000'
                 case 'EMPAX':
                     self.heading = hdg(360)
-                    self.route += ' EMPAX3C'
+                    self.route += ' EMPAX3C/07'
                     self.reqalt = 'ADNIS:10000'
                 case 'FAWUR':
                     self.heading = hdg(320)
-                    self.route += ' FAWUR2C'
+                    self.route += ' FAWUR2C/07'
                     self.reqalt = 'SPESA:11000'
                 case 'SPESA':
                     self.heading = hdg(320)
-                    self.route += ' SPESA3C'
+                    self.route += ' SPESA3C/07'
                     self.reqalt = 'SPESA:11000'
                 case 'UNOKO':
                     self.heading = hdg(80)
                     if self.acft_type in restricted_heavies:
-                        self.route += ' UNOKO3C'
+                        self.route += ' UNOKO3C/07'
                         self.reqalt = 'RAMOB:13000'
                     else:
-                        self.route += ' UNOKO3D'
+                        self.route += ' UNOKO3D/07'
                         self.reqalt = 'RAMOB:11000'
                 case 'RAMOB':
                     self.heading = hdg(60)
@@ -118,38 +118,38 @@ class Flight:
                 case 'KERAX':
                     self.heading = hdg(220)
                     if self.acft_type in restricted_heavies:
-                        self.route += ' KERAX3B'
+                        self.route += ' KERAX3B/25'
                         self.reqalt = 'KERAX:10000'
                     else:
-                        self.route += ' KERAX3A'
+                        self.route += ' KERAX3A/25'
                         self.reqalt = 'KERAX:11000'
                 case 'ROLIS':
                     self.heading = hdg(160)
                     if self.acft_type in restricted_heavies:
-                        self.route += ' ROLIS3B'
+                        self.route += ' ROLIS3B/25'
                         self.reqalt = 'OSPUL:12000'
                     else:
-                        self.route += ' ROLIS3A'
+                        self.route += ' ROLIS3A/25'
                         self.reqalt = 'ETARU:10000'
                 case 'EMPAX':
                     self.heading = hdg(360)
-                    self.route += ' EMPAX3B'
+                    self.route += ' EMPAX3B/25'
                     self.reqalt = 'ADNIS:10000'
                 case 'FAWUR':
                     self.heading = hdg(320)
-                    self.route += ' FAWUR2B'
+                    self.route += ' FAWUR2B/25'
                     self.reqalt = 'SPESA:11000'
                 case 'SPESA':
                     self.heading = hdg(320)
-                    self.route += ' SPESA3B'
+                    self.route += ' SPESA3B/25'
                     self.reqalt = 'SPESA:11000'
                 case 'UNOKO':
                     self.heading = hdg(80)
                     if self.acft_type in restricted_heavies:
-                        self.route += ' UNOKO3B'
+                        self.route += ' UNOKO3B/25'
                         self.reqalt = 'RAMOB:13000'
                     else:
-                        self.route += ' UNOKO3A'
+                        self.route += ' UNOKO3A/25'
                         self.reqalt = 'RAMOB:11000'
                 case 'RAMOB':
                     self.heading = hdg(60)
@@ -194,30 +194,30 @@ def create_sim(t_final=120):
 
 
 if __name__ == '__main__':
-    with open('ils_definition_{0}.txt'.format(runway_in_use)) as f:
+    with open('eddf/ils_definition_{0}.txt'.format(runway_in_use)) as f:
         ils = f.read()
-    with open('airport_alt.txt') as f:
+    with open('eddf/airport_alt.txt') as f:
         ils += '\n'
         ils += f.read()
     with open('controllers.txt') as f:
         ils += '\n'
         ils += f.read()
-    with open('holdings.txt') as f:
+    with open('eddf/holdings.txt') as f:
         ils += '\n'
         ils += f.read()
     with open('acft_performance.txt') as f:
         ils += '\n'
         ils += f.read()
-    with open('dep_{0}.txt'.format(runway_in_use)) as f:
+    with open('eddf/dep_{0}.txt'.format(runway_in_use)) as f:
         ils += '\n'
         ils += f.read()
-    with open('specials.txt') as f:
+    with open('eddf/specials.txt') as f:
         ils += '\n'
         ils += f.read()
         ils += '\n'
 
     output = create_sim()
 
-    with open('output.txt', 'w') as f:
+    with open('output_eddf.txt', 'w') as f:
         f.write(ils)
         f.write(output)
