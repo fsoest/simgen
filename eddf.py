@@ -199,13 +199,13 @@ if __name__ == '__main__':
     with open('eddf/airport_alt.txt') as f:
         ils += '\n'
         ils += f.read()
-    with open('controllers.txt') as f:
+    with open('gen/controllers.txt') as f:
         ils += '\n'
         ils += f.read()
     with open('eddf/holdings.txt') as f:
         ils += '\n'
         ils += f.read()
-    with open('acft_performance.txt') as f:
+    with open('gen/acft_performance.txt') as f:
         ils += '\n'
         ils += f.read()
     with open('eddf/dep_{0}.txt'.format(runway_in_use)) as f:
