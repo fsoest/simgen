@@ -3,32 +3,32 @@ import random
 routes = {
     'ROBEL': {
         'routes': ['ROBEL T178 KERAX', 'ROBEL KERAX'],
-        'rate': 20,
+        'rate': 15,
         'block': 0,
               },
     'COL': {
         'routes': ['COL T911 ROLIS'],
-        'rate': 20,
+        'rate': 15,
         'block': 0,
               },
     'LADOL': {
         'routes': ['LADOL T163 EMPAX'],
-        'rate': 20,
+        'rate': 15,
         'block': 0,
               },
     'GIMAX': {
         'routes': ['GIMAX T161 FAWUR', 'GIMAX T161 SPESA'],
-        'rate': 20,
+        'rate': 15,
         'block': 0,
               },
     'NIVNU': {
         'routes': ['NIVNU T180 UNOKO', 'NIVNU RAMOB'],
-        'rate': 20,
+        'rate': 15,
         'block': 0,
               },
 }
 
-runway_in_use = 7
+runway_in_use = 25
 restricted_heavies = ['B744', 'MD11', 'A388', 'B748']
 
 with open('eddf/flights.csv') as f:

@@ -3,12 +3,12 @@ import random
 routes = {
     'UBENO': {
         'routes': ['UBENO N850 KRH T128 BADSO'],
-        'rate': 3,
+        'rate': 5,
         'block': 0,
               },
     'RIDAR': {
         'routes': ['RIDAR Z79 ABGAS T129 TEKSI'],
-        'rate': 3,
+        'rate': 5,
         'block': 0,
               },
     'GARMO': {
@@ -18,7 +18,7 @@ routes = {
               },
     'LUPEN': {
         'routes': ['LUPEN T126 REUTL'],
-        'rate': 1,
+        'rate': 5,
         'block': 0,
               },
     'TOSTU': {
@@ -28,7 +28,7 @@ routes = {
               },
 }
 
-runway_in_use = 7
+runway_in_use = 25
 
 with open('edds/flights.csv') as f:
     lines = f.readlines()
@@ -73,7 +73,7 @@ class Flight:
                     self.route += ' BADSO07'
                     self.reqalt = 'INKAM:13000'
                 case 'TEKSI':
-                    self.heading = hdg(160)
+                    self.heading = hdg(280)
                     self.route += ' TEKSI07'
                     self.reqalt = 'TEKSI:11000'
                 case 'REUTL':
@@ -81,7 +81,7 @@ class Flight:
                     self.route += ' REUTL07'
                     self.reqalt = 'ARSUT:12000' if self.route.split(' ')[0] == 'LUPEN' else 'ARSUT:13000'
                 case 'LBU':
-                    self.heading = hdg(320)
+                    self.heading = hdg(180)
                     self.route += ' LBU07'
                     self.reqalt = 'GEBNO:12000'
         elif runway_in_use == 25:
@@ -91,7 +91,7 @@ class Flight:
                     self.route += ' BADSO25'
                     self.reqalt = 'INKAM:13000'
                 case 'TEKSI':
-                    self.heading = hdg(160)
+                    self.heading = hdg(280)
                     self.route += ' TEKSI25'
                     self.reqalt = 'TEKSI:11000'
                 case 'REUTL':
@@ -99,7 +99,7 @@ class Flight:
                     self.route += ' REUTL25'
                     self.reqalt = 'ARSUT:12000' if self.route.split(' ')[0] == 'LUPEN' else 'ARSUT:13000'
                 case 'LBU':
-                    self.heading = hdg(320)
+                    self.heading = hdg(180)
                     self.route += ' LBU25'
                     self.reqalt = 'GEBNO:12000'
         else:
