@@ -152,8 +152,7 @@ if __name__ == '__main__':
         ils += '\n'
         ils += f.read()
     with open('edds/dep_{0}.txt'.format(runway_in_use)) as f:
-        ils += '\n'
-        ils += f.read()
+        deps = f.read()
     with open('edds/specials.txt') as f:
         ils += '\n'
         ils += f.read()
@@ -164,3 +163,5 @@ if __name__ == '__main__':
     with open('output_edds.txt', 'w') as f:
         f.write(ils)
         f.write(output)
+        f.write('\n')
+        f.write(deps)
