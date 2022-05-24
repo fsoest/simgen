@@ -3,7 +3,7 @@ import random
 routes = {
     'UBENO': {
         'routes': ['UBENO N850 KRH T128 BADSO'],
-        'rate': 5,
+        'rate': 15,
         'block': 0,
               },
     'RIDAR': {
@@ -13,17 +13,17 @@ routes = {
               },
     'GARMO': {
         'routes': ['GARMO T125 REUTL'],
-        'rate': 5,
+        'rate': 3,
         'block': 0,
               },
     'LUPEN': {
         'routes': ['LUPEN T126 REUTL'],
-        'rate': 5,
+        'rate': 1,
         'block': 0,
               },
     'TOSTU': {
         'routes': ['TOSTU T726 T726 LBU'],
-        'rate': 3,
+        'rate': 10,
         'block': 0,
               },
 }
