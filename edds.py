@@ -89,7 +89,7 @@ class Flight:
         return entry
 
 
-def create_sim(routes, t_final=120):
+def create_sim(t_final=120):
     acft = ''
     i = 0
     for t in range(t_final):
@@ -164,7 +164,7 @@ if __name__ == '__main__':
         ils += f.read()
         ils += '\n'
 
-    output = create_sim(routes)
+    output = create_sim()
 
     with open('output_edds.txt', 'w') as f:
         f.write(ils)
