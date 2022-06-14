@@ -1,34 +1,6 @@
 import random
+from argparse import ArgumentParser
 
-routes = {
-    'UBENO': {
-        'routes': ['UBENO N850 KRH T128 BADSO'],
-        'rate': 5,
-        'block': 0,
-              },
-    'RIDAR': {
-        'routes': ['RIDAR Z79 ABGAS T129 TEKSI'],
-        'rate': 5,
-        'block': 0,
-              },
-    'GARMO': {
-        'routes': ['GARMO T125 REUTL'],
-        'rate': 5,
-        'block': 0,
-              },
-    'LUPEN': {
-        'routes': ['LUPEN T126 REUTL'],
-        'rate': 5,
-        'block': 0,
-              },
-    'TOSTU': {
-        'routes': ['TOSTU T726 T726 LBU'],
-        'rate': 3,
-        'block': 0,
-              },
-}
-
-runway_in_use = 25
 
 with open('edds/flights.csv') as f:
     lines = f.readlines()
@@ -117,7 +89,7 @@ class Flight:
         return entry
 
 
-def create_sim(t_final=120):
+def create_sim(routes, t_final=120):
     acft = ''
     i = 0
     for t in range(t_final):
@@ -137,6 +109,40 @@ def create_sim(t_final=120):
 
 
 if __name__ == '__main__':
+    parser = ArgumentParser()
+    parser.add_argument('riu', type=int, help='Runway in use, 7 vs 25')
+    parser.add_argument('rates', type=int, nargs=5, help='Rates of Entry points BADSO, TEKSI, GARMO, LUPEN, LBU')
+    args = parser.parse_args()
+
+    runway_in_use = args.riu
+    routes = {
+        'UBENO': {
+            'routes': ['UBENO N850 KRH T128 BADSO'],
+            'rate': args.rates[0],
+            'block': 0,
+        },
+        'RIDAR': {
+            'routes': ['RIDAR Z79 ABGAS T129 TEKSI'],
+            'rate': args.rates[1],
+            'block': 0,
+        },
+        'GARMO': {
+            'routes': ['GARMO T125 REUTL'],
+            'rate': args.rates[2],
+            'block': 0,
+        },
+        'LUPEN': {
+            'routes': ['LUPEN T126 REUTL'],
+            'rate': args.rates[3],
+            'block': 0,
+        },
+        'TOSTU': {
+            'routes': ['TOSTU T726 T726 LBU'],
+            'rate': args.rates[4],
+            'block': 0,
+        },
+    }
+
     with open('edds/ils_definition_{0}.txt'.format(runway_in_use)) as f:
         ils = f.read()
     with open('edds/airport_alt.txt') as f:
@@ -158,7 +164,7 @@ if __name__ == '__main__':
         ils += f.read()
         ils += '\n'
 
-    output = create_sim()
+    output = create_sim(routes)
 
     with open('output_edds.txt', 'w') as f:
         f.write(ils)

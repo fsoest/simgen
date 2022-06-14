@@ -1,35 +1,8 @@
 import random
+from argparse import ArgumentParser
 
-routes = {
-    'ROBEL': {
-        'routes': ['ROBEL T178 KERAX', 'ROBEL KERAX'],
-        'rate': 15,
-        'block': 0,
-              },
-    'COL': {
-        'routes': ['COL T911 ROLIS'],
-        'rate': 15,
-        'block': 0,
-              },
-    'LADOL': {
-        'routes': ['LADOL T163 EMPAX'],
-        'rate': 15,
-        'block': 0,
-              },
-    'GIMAX': {
-        'routes': ['GIMAX T161 FAWUR', 'GIMAX T161 SPESA'],
-        'rate': 15,
-        'block': 0,
-              },
-    'NIVNU': {
-        'routes': ['NIVNU T180 UNOKO', 'NIVNU RAMOB'],
-        'rate': 15,
-        'block': 0,
-              },
-}
 
-runway_in_use = 25
-restricted_heavies = ['B744', 'MD11', 'A388', 'B748']
+restricted_heavies = ['B744', 'MD11', 'A388', 'B748', 'B742']
 
 with open('eddf/flights.csv') as f:
     lines = f.readlines()
@@ -174,7 +147,7 @@ class Flight:
         return entry
 
 
-def create_sim(t_final=120):
+def create_sim(routes, t_final=120):
     acft = ''
     i = 0
     for t in range(t_final):
@@ -184,7 +157,7 @@ def create_sim(t_final=120):
                 flight = random.choice(flights)
                 acft += Flight(flight, key, t, 1000).make_entry()
                 flights.remove(flight)
-                routes[key]['block'] = 2
+                routes[key]['block'] = 1
                 i += 1
             else:
                 if val['block'] > 0:
@@ -194,6 +167,43 @@ def create_sim(t_final=120):
 
 
 if __name__ == '__main__':
+    parser = ArgumentParser()
+    parser.add_argument('riu', type=int, help='Runway in use, 7 vs 25')
+    parser.add_argument('rates', type=int, nargs=5,
+                        help='Rates of Entry points KERAX, ROLIS, EMPAX, SPESA, UNOKO')
+    args = parser.parse_args()
+
+    runway_in_use = args.riu
+
+    routes = {
+        'ROBEL': {
+            'routes': ['ROBEL T178 KERAX', 'ROBEL KERAX'],
+            'rate': args.rates[0],
+            'block': 0,
+        },
+        'COL': {
+            'routes': ['COL T911 ROLIS'],
+            'rate': args.rates[1],
+            'block': 0,
+        },
+        'LADOL': {
+            'routes': ['LADOL T163 EMPAX'],
+            'rate': args.rates[2],
+            'block': 0,
+        },
+        'GIMAX': {
+            'routes': ['GIMAX T161 FAWUR', 'GIMAX T161 SPESA'],
+            'rate': args.rates[3],
+            'block': 0,
+        },
+        'NIVNU': {
+            'routes': ['NIVNU T180 UNOKO'],
+            'rate': args.rates[4],
+            'block': 0,
+        },
+    }
+
+
     with open('eddf/ils_definition_{0}.txt'.format(runway_in_use)) as f:
         ils = f.read()
     with open('eddf/airport_alt.txt') as f:
@@ -215,7 +225,7 @@ if __name__ == '__main__':
         ils += f.read()
         ils += '\n'
 
-    output = create_sim()
+    output = create_sim(routes)
 
     with open('output_eddf.txt', 'w') as f:
         f.write(ils)
