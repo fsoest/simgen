@@ -85,7 +85,8 @@ class Flight:
         entry += '\n'
         # entry += '$ROUTE:{0}\nSTART:{1}\nREQALT:{2}\n'.format(self.route, self.start, self.reqalt)
         entry += 'START:{0}\nREQALT:{1}\n'.format(self.start, self.reqalt)
-        entry += 'INITIALPSEUDOPILOT:{0}\n\n'.format(self.pseudo)
+        entry += 'INITIALPSEUDOPILOT:{0}\n'.format(self.pseudo)
+        entry += 'SIMDATA:{}:*:*:25:3:0\n\n'.format(self.callsign)
         return entry
 
 
