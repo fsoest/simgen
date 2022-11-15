@@ -4,8 +4,6 @@ Little python script to generate random Euroscope scenario files.
 
 # Installation
 1. Install Python: https://www.python.org/downloads/
-2. Navigate to the simgen folder in a command line window
-3. Install the dependencies with the following command: pip install -r requirements.txt
 
 # Usage
 1. Navigate to the simgen folder in a command line window
