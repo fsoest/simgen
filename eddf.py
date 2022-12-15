@@ -60,7 +60,7 @@ class Flight:
                         self.reqalt = 'ETARU:10000'
                 case 'EMPAX':
                     self.heading = hdg(360)
-                    self.route += ' EMPAX3C/07'
+                    self.route += ' EMPAX4C/07'
                     self.reqalt = 'ADNIS:10000'
                 case 'FAWUR':
                     self.heading = hdg(320)
@@ -106,7 +106,7 @@ class Flight:
                         self.reqalt = 'ETARU:10000'
                 case 'EMPAX':
                     self.heading = hdg(360)
-                    self.route += ' EMPAX3B/25'
+                    self.route += ' EMPAX4B/25'
                     self.reqalt = 'ADNIS:10000'
                 case 'FAWUR':
                     self.heading = hdg(320)
