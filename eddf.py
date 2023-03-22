@@ -56,7 +56,7 @@ class Flight:
                         self.route += ' ROLIS3C/07'
                         self.reqalt = 'OSPUL:12000'
                     else:
-                        self.route += ' ROLIS3D'
+                        self.route += ' ROLIS3D/07'
                         self.reqalt = 'ETARU:10000'
                 case 'EMPAX':
                     self.heading = hdg(360)
@@ -138,7 +138,7 @@ class Flight:
     def make_entry(self):
         entry = ''
         entry += ':'.join(['@N', self.callsign, str(self.squawk), '1', self.lat, self.lon, self.lvl, '0', self.heading, '0\n'])
-        entry += ':'.join(['$FP{0}'.format(self.callsign), '*A', 'I', self.acft_type, str(300), self.dep_airport, \
+        entry += ':'.join(['$FP{0}'.format(self.callsign), '*A', 'I', self.acft_type + '/L', str(300), self.dep_airport, \
                            '1000', '1000', '390', self.arr_airport, '2', '50', '4', '00', 'EDDL', '/V/', self.route])
         entry += '\n'
         # entry += '$ROUTE:{0}\nSTART:{1}\nREQALT:{2}\n'.format(self.route, self.start, self.reqalt)
