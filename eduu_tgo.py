@@ -28,7 +28,10 @@ def create_sim(routes, t_final=60):
                 else:
                     acft.reqalt = val['reqalt']
                 acft.heading = hdg(val['heading'])
-                acfts += acft.make_entry(rfl=lvl[:3])
+                if key != 'DEGES':
+                    acfts += acft.make_entry(rfl=lvl[:3])
+                elif key == 'DEGES':
+                    acfts += acft.make_entry(['350', '340'][choice])
                 flights.remove(flight)
                 routes[key]['block'] = 1
                 i += 1
