@@ -80,7 +80,7 @@ class DFFlight(Flight):
                         self.reqalt = 'ETARU:10000'
                 case 'EMPAX':
                     self.heading = hdg(360)
-                    self.route += ' EMPAX3B/25'
+                    self.route += ' EMPAX5B/25'
                     self.reqalt = 'ADNIS:10000'
                 case 'FAWUR':
                     self.heading = hdg(320)
@@ -111,6 +111,7 @@ class DFFlight(Flight):
 
 
 def create_sim(routes, t_final=120):
+    even_levels = ['']
     acft = ''
     i = 0
     for t in range(t_final):
@@ -165,7 +166,6 @@ if __name__ == '__main__':
             'block': 0,
         },
     }
-
 
     with open('eddf/ils_definition_{0}.txt'.format(runway_in_use)) as f:
         ils = f.read()
