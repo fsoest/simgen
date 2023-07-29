@@ -1,41 +1,15 @@
 import random
 from argparse import ArgumentParser
+from base import hdg, flights_entries
+from flight import Flight
 
 
-with open('edds/flights.csv') as f:
-    lines = f.readlines()
-    flights = [line.split(';') for line in lines]
+flights, entry_points = flights_entries('edds')
 
 
-def hdg(heading):
-    return str(int(heading * 2.88 + 0.5) << 2)
-
-
-with open('edds/entries.txt') as f:
-    lines = f.readlines()
-    entry_points = {}
-    for line in lines:
-        split = line.split(' ')
-        entry_points[split[0]] = [split[1], split[2][:14]]
-
-
-class Flight:
-    def __init__(self, flight, fix, time, squawk):
-        self.route = random.choice(routes[fix]['routes'])
-        self.flight = flight
-        self.callsign = self.flight[0]
-        self.acft_type = self.flight[2][:-1]
-        self.dep_airport = self.flight[1]
-        self.dep_airport = 'X'
-        self.arr_airport = 'EDDS'
-        self.heading = None
-        self.star()
-        self.pseudo = 'EDDS_M_APP'
-        self.start = str(time)
-        self.lvl = '18000'
-        self.squawk = squawk
-        self.lat = entry_points[fix][0]
-        self.lon = entry_points[fix][1]
+class DSFlight(Flight):
+    def __init__(self, flight, fix, time, squawk, routes, entry_points):
+        super().__init__(flight, fix, time, squawk, routes, entry_points, arr='EDDS', pseudo='EDDS_M_APP', lvl='18000')
 
     def star(self):
         if runway_in_use == 7:
@@ -77,18 +51,6 @@ class Flight:
         else:
             print('Wrong runway in use!')
 
-    def make_entry(self):
-        entry = ''
-        entry += ':'.join(['@N', self.callsign, str(self.squawk), '1', self.lat, self.lon, self.lvl, '0', self.heading, '0\n'])
-        entry += ':'.join(['$FP{0}'.format(self.callsign), '*A', 'I', self.acft_type, str(300), self.dep_airport, \
-                           '1000', '1000', '390', self.arr_airport, '2', '50', '4', '00', 'EDDL', '/V/', self.route])
-        entry += '\n'
-        # entry += '$ROUTE:{0}\nSTART:{1}\nREQALT:{2}\n'.format(self.route, self.start, self.reqalt)
-        entry += 'START:{0}\nREQALT:{1}\n'.format(self.start, self.reqalt)
-        entry += 'INITIALPSEUDOPILOT:{0}\n'.format(self.pseudo)
-        entry += 'SIMDATA:{}:*:*:25:3:0\n\n'.format(self.callsign)
-        return entry
-
 
 def create_sim(t_final=120):
     acft = ''
@@ -98,7 +60,7 @@ def create_sim(t_final=120):
             if random.uniform(0, 1) < val['rate'] / 60 and val['block'] == 0:
                 # Create aircraft
                 flight = random.choice(flights)
-                acft += Flight(flight, key, t, 1000).make_entry()
+                acft += DSFlight(flight, key, t, 1000, routes, entry_points).make_entry()
                 flights.remove(flight)
                 routes[key]['block'] = 2
                 i += 1
