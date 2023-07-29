@@ -19,38 +19,38 @@ class DFFlight(Flight):
                 case 'KERAX':
                     self.heading = hdg(220)
                     if self.acft_type in restricted_heavies:
-                        self.route += ' KERAX3C/07'
+                        self.route += ' KERAX4C/07'
                         self.reqalt = 'KERAX:12000'
                     else:
-                        self.route += ' KERAX3D/07'
+                        self.route += ' KERAX4D/07'
                         self.reqalt = 'KERAX:13000'
                 case 'ROLIS':
                     self.heading = hdg(160)
                     if self.acft_type in restricted_heavies:
-                        self.route += ' ROLIS3C/07'
+                        self.route += ' ROLIS4C/07'
                         self.reqalt = 'OSPUL:12000'
                     else:
-                        self.route += ' ROLIS3D/07'
+                        self.route += ' ROLIS4D/07'
                         self.reqalt = 'ETARU:10000'
                 case 'EMPAX':
                     self.heading = hdg(360)
-                    self.route += ' EMPAX4C/07'
+                    self.route += ' EMPAX5C/07'
                     self.reqalt = 'ADNIS:10000'
                 case 'FAWUR':
                     self.heading = hdg(320)
-                    self.route += ' FAWUR2C/07'
+                    self.route += ' FAWUR3C/07'
                     self.reqalt = 'SPESA:11000'
                 case 'SPESA':
                     self.heading = hdg(320)
-                    self.route += ' SPESA3C/07'
+                    self.route += ' SPESA4C/07'
                     self.reqalt = 'SPESA:11000'
                 case 'UNOKO':
                     self.heading = hdg(80)
                     if self.acft_type in restricted_heavies:
-                        self.route += ' UNOKO3C/07'
+                        self.route += ' UNOKO4C/07'
                         self.reqalt = 'RAMOB:13000'
                     else:
-                        self.route += ' UNOKO3D/07'
+                        self.route += ' UNOKO4D/07'
                         self.reqalt = 'RAMOB:11000'
                 case 'RAMOB':
                     self.heading = hdg(60)
@@ -65,38 +65,38 @@ class DFFlight(Flight):
                 case 'KERAX':
                     self.heading = hdg(220)
                     if self.acft_type in restricted_heavies:
-                        self.route += ' KERAX3B/25'
+                        self.route += ' KERAX4B/25'
                         self.reqalt = 'KERAX:10000'
                     else:
-                        self.route += ' KERAX3A/25'
+                        self.route += ' KERAX4A/25'
                         self.reqalt = 'KERAX:11000'
                 case 'ROLIS':
                     self.heading = hdg(160)
                     if self.acft_type in restricted_heavies:
-                        self.route += ' ROLIS3B/25'
+                        self.route += ' ROLIS4B/25'
                         self.reqalt = 'OSPUL:12000'
                     else:
-                        self.route += ' ROLIS3A/25'
+                        self.route += ' ROLIS4A/25'
                         self.reqalt = 'ETARU:10000'
                 case 'EMPAX':
                     self.heading = hdg(360)
-                    self.route += ' EMPAX4B/25'
+                    self.route += ' EMPAX3B/25'
                     self.reqalt = 'ADNIS:10000'
                 case 'FAWUR':
                     self.heading = hdg(320)
-                    self.route += ' FAWUR2B/25'
+                    self.route += ' FAWUR3B/25'
                     self.reqalt = 'SPESA:11000'
                 case 'SPESA':
                     self.heading = hdg(320)
-                    self.route += ' SPESA3B/25'
+                    self.route += ' SPESA4B/25'
                     self.reqalt = 'SPESA:11000'
                 case 'UNOKO':
                     self.heading = hdg(80)
                     if self.acft_type in restricted_heavies:
-                        self.route += ' UNOKO3B/25'
+                        self.route += ' UNOKO4B/25'
                         self.reqalt = 'RAMOB:13000'
                     else:
-                        self.route += ' UNOKO3A/25'
+                        self.route += ' UNOKO4A/25'
                         self.reqalt = 'RAMOB:11000'
                 case 'RAMOB':
                     self.heading = hdg(60)
