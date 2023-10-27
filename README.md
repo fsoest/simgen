@@ -27,16 +27,16 @@ Little python script to generate random Euroscope scenario files.
 
 ## Tango/CTR
 - Execute **eduu_tgo.py** for Tango with the following parameters: 
-    - The rates for each waypoint are aircraft per hour
+    - The rates for each waypoint are aircraft per hour 
   ```py
   eddf.py [DEGES] [IBAGA] [PITES] [POGOL] [DITAM]
   ```
 - *Routes:*
      
-     - *DEGES:* Zürich DEPs to Hamburg or Berlin via ETAGO > AMOSA or ETAGO > HAREM > LOHRE
-     - *IBAGA:* Zürich ARRs via DKB > TEDGO
+     - *DEGES:* ZÃ¼rich DEPs to Hamburg or Berlin via ETAGO > AMOSA or ETAGO > HAREM > LOHRE
+     - *IBAGA:* ZÃ¼rich ARRs via DKB > TEDGO
      - *PITES:* Innsbruck ARRs via KRH > BATUB
-     - *POGOL (OBAKI):* München ARRs from France via LUPEN > ROKIL
+     - *POGOL (OBAKI):* MÃ¼nchen ARRs from France via LUPEN > ROKIL
      - *DITAM (SUREP):* Frankfurt ARRs via EMPAX
 
 - Press **Enter** to execute. The file will be written to **\<currentFolder\>\output_eddf.txt**
