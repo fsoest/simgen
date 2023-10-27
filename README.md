@@ -7,14 +7,14 @@ Little python script to generate random Euroscope scenario files.
 
 # Usage
 
-- Right click inside the simgen-folder in Windows Explorer and select "Open in Terminal" (if the option doesn't show up, try holding down shift while right-clicking).
+- Right-click inside the simgen-folder in Windows Explorer and select "Open in Terminal" (if the option doesn't show up, try holding down shift while right-clicking).
 
 ## Frankfurt
 - Execute **eddf.py** for Frankfurt with the following parameters: 
     - Runway can either be 25 or 07, the rates for each waypoint are aircraft per hour
       
   ```py
-  eddf.py [RUNWAY] [KERAX] [ROLIS] [EMPAX] [SPESA] [UNOKO]
+  python eddf.py [RUNWAY] [KERAX] [ROLIS] [EMPAX] [SPESA] [UNOKO]
   ```
 - Press **Enter** to execute. The file will be written to **\<simgenFolder\>\output_eddf.txt**
 
@@ -23,7 +23,7 @@ Little python script to generate random Euroscope scenario files.
     - Runway can either be 25 or 07, the rates for each waypoint are aircraft per hour
       
   ```py
-  eddf.py [RUNWAY] [BADSO] [TEKSI] [GARMO] [LUPEN] [LBU]
+  python edds.py [RUNWAY] [BADSO] [TEKSI] [GARMO] [LUPEN] [LBU]
   ```
 - Press **Enter** to execute. The file will be written to **\<simgenFolder\>\output_edds.txt**
 
@@ -32,7 +32,7 @@ Little python script to generate random Euroscope scenario files.
     - The rates for each waypoint are aircraft per hour
       
   ```py
-  eddf.py [DEGES] [IBAGA] [PITES] [POGOL] [DITAM]
+  python eduu_tgo.py [DEGES] [IBAGA] [PITES] [POGOL] [DITAM]
   ```
 - *Routes:*
      
