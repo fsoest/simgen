@@ -6,7 +6,36 @@ Little python script to generate random Euroscope scenario files.
 1. Install Python: https://www.python.org/downloads/
 
 # Usage
-1. Navigate to the simgen folder in a command line window / right click in Windows Explorer to "Open in Terminal".
-2. Execute eddf.py for Frankfurt or edds.py for Stuttgart, (python eddf.py -h | python edds.py -h) outputs the required parameters.
-3. Choose runway in use [7,25] and ACFT/hr for all fixes given by the help flag.
-4. Run the file with the parameters from above, the program will write the sim to the output file, which can then be used in Euroscope. The program prints the total amount of aircraft over the two hour long sim in the console.
+
+- Right click inside the simgen-folder in Windows Explorer and "Open in Terminal".
+
+## Frankfurt
+- Execute eddf.py for Frankfurt with the following parameters: 
+- Runway can either be 25 or 07, the rates for each waypoints are aircraft per hour
+  ```py
+  eddf.py [RUNWAY] [KERAX] [ROLIS] [EMPAX] [SPESA] [UNOKO]
+  ```
+
+## Stuttgart
+- Execute edds.py for Stuttgart with the following parameters: 
+- Runway can either be 25 or 07, the rates for each waypoints are aircraft per hour
+  ```py
+  eddf.py [RUNWAY] [BADSO] [TEKSI] [GARMO] [LUPEN] [LBU]
+  ```
+
+## Tango/CTR
+- Execute eduu_tgo.py for Tango with the following parameters: 
+- The rates for each waypoints are aircraft per hour
+  ```py
+  eddf.py [DEGES] [IBAGA] [PITES] [POGOL] [DITAM]
+  ```
+
+  DEGES: Zürich DEPs to Hamburg or Berlin via ETAGO > AMOSA or ETAGO > HAREM > LOHRE
+
+  IBAGA: Zürich ARRs via DKB > TEDGO
+
+  PITES: Innsbruck ARRs via KRH > BATUB
+
+  POGOL (OBAKI): München ARRs from France via LUPEN > ROKIL
+
+  DITAM (SUREP): Frankfurt ARRs via EMPAX
