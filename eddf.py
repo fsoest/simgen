@@ -134,7 +134,7 @@ if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('riu', type=int, help='Runway in use, 7 vs 25')
     parser.add_argument('rates', type=int, nargs=5,
-                        help='Rates of Entry points KERAX, ROLIS, EMPAX, SPESA, UNOKO')
+                        help='Rates of Entry points KERAX, ROLIS, EMPAX, SPESA, RASVO')
     args = parser.parse_args()
 
     runway_in_use = args.riu
