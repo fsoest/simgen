@@ -44,7 +44,7 @@ class DFFlight(Flight):
                     self.heading = hdg(320)
                     self.route += ' SPESA4C/07'
                     self.reqalt = 'SPESA:11000'
-                case 'UNOKO':
+                case 'RASVO':
                     self.heading = hdg(80)
                     if self.acft_type in restricted_heavies:
                         self.route += ' RASVO1C/07'
@@ -90,7 +90,7 @@ class DFFlight(Flight):
                     self.heading = hdg(320)
                     self.route += ' SPESA4B/25'
                     self.reqalt = 'SPESA:11000'
-                case 'UNOKO':
+                case 'RASVO':
                     self.heading = hdg(80)
                     if self.acft_type in restricted_heavies:
                         self.route += ' RASVO1B/25'
