@@ -47,10 +47,10 @@ class DFFlight(Flight):
                 case 'UNOKO':
                     self.heading = hdg(80)
                     if self.acft_type in restricted_heavies:
-                        self.route += ' UNOKO4C/07'
+                        self.route += ' RASVO1C/07'
                         self.reqalt = 'RAMOB:13000'
                     else:
-                        self.route += ' UNOKO4D/07'
+                        self.route += ' RASVO1D/07'
                         self.reqalt = 'RAMOB:11000'
                 case 'RAMOB':
                     self.heading = hdg(60)
@@ -93,10 +93,10 @@ class DFFlight(Flight):
                 case 'UNOKO':
                     self.heading = hdg(80)
                     if self.acft_type in restricted_heavies:
-                        self.route += ' UNOKO4B/25'
+                        self.route += ' RASVO1B/25'
                         self.reqalt = 'RAMOB:13000'
                     else:
-                        self.route += ' UNOKO4A/25'
+                        self.route += ' RASVO1A/25'
                         self.reqalt = 'RAMOB:11000'
                 case 'RAMOB':
                     self.heading = hdg(60)
@@ -161,7 +161,7 @@ if __name__ == '__main__':
             'block': 0,
         },
         'NIVNU': {
-            'routes': ['NIVNU T180 UNOKO'],
+            'routes': ['NIVNU T180 RASVO'],
             'rate': args.rates[4],
             'block': 0,
         },
