@@ -14,7 +14,7 @@ Little python script to generate random Euroscope scenario files.
     - Runway can either be 25 or 07, the rates for each waypoint are aircraft per hour
       
   ```py
-  python eddf.py [RUNWAY] [KERAX] [ROLIS] [EMPAX] [SPESA] [UNOKO]
+  python eddf.py [RUNWAY] [KERAX] [ROLIS] [EMPAX] [SPESA] [RASVO]
   ```
 - Press **Enter** to execute. The file will be written to **\<simgenFolder\>\output_eddf.txt**
 
