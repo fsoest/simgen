@@ -36,9 +36,9 @@ class DFFlight(Flight):
                     self.heading = hdg(360)
                     self.route += ' EMPAX5C/07'
                     self.reqalt = 'ADNIS:10000'
-                case 'FAWUR':
+                case 'DEBHI':
                     self.heading = hdg(320)
-                    self.route += ' FAWUR3C/07'
+                    self.route += ' DEBHI1C/07'
                     self.reqalt = 'SPESA:11000'
                 case 'SPESA':
                     self.heading = hdg(320)
@@ -82,9 +82,9 @@ class DFFlight(Flight):
                     self.heading = hdg(360)
                     self.route += ' EMPAX5B/25'
                     self.reqalt = 'ADNIS:10000'
-                case 'FAWUR':
+                case 'DEBHI':
                     self.heading = hdg(320)
-                    self.route += ' FAWUR3B/25'
+                    self.route += ' DEBHI1B/25'
                     self.reqalt = 'SPESA:11000'
                 case 'SPESA':
                     self.heading = hdg(320)
@@ -156,7 +156,7 @@ if __name__ == '__main__':
             'block': 0,
         },
         'GIMAX': {
-            'routes': ['GIMAX T161 FAWUR', 'GIMAX T161 SPESA'],
+            'routes': ['GIMAX T161 DEBHI', 'GIMAX T161 SPESA'],
             'rate': args.rates[3],
             'block': 0,
         },
